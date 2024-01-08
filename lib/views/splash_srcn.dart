@@ -16,7 +16,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   _navigateToHome() async {
-    await Future.delayed(Duration(milliseconds: 10000));
+    await Future.delayed(Duration(milliseconds: 9000));
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -36,21 +36,17 @@ class _SplashPageState extends State<SplashPage> {
           width: w,
           height: h * 0.8,
           decoration: const BoxDecoration(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
             image: DecorationImage(
-              image: AssetImage("assets/logo.jpeg"),
+              image: AssetImage("assets/spalash.webp"),
               fit: BoxFit.cover,
             ),
           ),
         ),
-        Container(
-          width: w,
-          height: h * 0.2,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/logo.png"),
-            ),
-          ),
-        ),
+        Image.asset(
+          "assets/logo.png",
+          height: 120,
+        )
       ],
     ));
   }

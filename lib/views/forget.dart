@@ -21,20 +21,20 @@ class ForgetPage extends StatelessWidget {
             ),
             const Gap(15),
             const Text(
-              'FORGOT PASSWORD',
+              'FORGET PASSWORD',
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 30,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const Gap(5),
             const Text(
-              'We’ll send a password reset link to your email.',
+              'We’ll send a password reset link to your email 🔥',
               style: TextStyle(
-                color: Colors.grey,
-                fontSize: 14,
+                fontSize: 16,
               ),
+              textAlign: TextAlign.center,
             ),
             const Gap(15),
             const Padding(
@@ -49,25 +49,26 @@ class ForgetPage extends StatelessWidget {
                     FluentIcons.mail_16_regular,
                     color: Color(0xff808080),
                   ),
-                  filled: true, // Set filled to true to enable background color
-                  fillColor: Color(0xffD9D9D9),
+                  // filled: true, // Set filled to true to enable background color
+                  fillColor: Color.fromARGB(255, 15, 15, 15),
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0xffFF9314),
                     ),
                     borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+                      Radius.circular(10),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Color(0xffFF9314), width: 2),
                     borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+                      Radius.circular(10),
                     ),
                   ),
                 ),
                 style: TextStyle(
                   color: Color.fromARGB(255, 24, 23, 23),
+                  fontSize: 16.0,
                 ),
               ),
             ),

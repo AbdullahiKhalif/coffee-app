@@ -11,6 +11,7 @@ class RegeisterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
         elevation: 0,
       ),
       body: Center(
@@ -19,6 +20,7 @@ class RegeisterPage extends StatelessWidget {
           children: [
             const Image(
               image: AssetImage('assets/logo.png'),
+              height: 120,
             ),
             const Gap(0),
             const Text(
@@ -29,144 +31,153 @@ class RegeisterPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Gap(20),
+            const Gap(10),
             const Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Full Name",
-                  hintStyle: TextStyle(color: Color(0xff808080)),
-                  prefixIcon: Icon(
-                    FluentIcons.person_16_regular,
-                    color: Color(0xff808080),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Username *',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "Poppins"),
                   ),
-                  filled: true, // Set filled to true to enable background color
-                  fillColor: Color(0xffD9D9D9),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xffFF9314),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "You'r name",
+                      hintStyle: TextStyle(color: Color(0xff808080)),
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Color(0xff808080),
+                      ),
+                      // filled: true, // Set filled to true to enable background color
+                      fillColor: Color.fromARGB(255, 7, 7, 7),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xffFF9314),
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xffFF9314), width: 2),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                     ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.0,
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffFF9314), width: 2),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                  ),
-                ),
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
+                ],
               ),
             ),
-            const Gap(20),
+            const Gap(5),
             const Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "example@gmail.com",
-                  hintStyle: TextStyle(color: Color(0xff808080)),
-                  prefixIcon: Icon(
-                    FluentIcons.mail_16_regular,
-                    color: Color(0xff808080),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Phone Number *',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "Poppins"),
                   ),
-                  filled: true, // Set filled to true to enable background color
-                  fillColor: Color(0xffD9D9D9),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xffFF9314),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "+2526xxxxxxxxx",
+                      hintStyle: TextStyle(color: Color(0xff808080)),
+                      prefixIcon: Icon(
+                        Icons.call,
+                        color: Color(0xff808080),
+                      ),
+                      // filled: true, // Set filled to true to enable background color
+                      fillColor: Color.fromARGB(255, 7, 7, 7),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xffFF9314),
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xffFF9314), width: 2),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                     ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.0,
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffFF9314), width: 2),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                  ),
-                ),
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
+                ],
               ),
             ),
-            const Gap(20),
+            const Gap(5),
             const Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "+252 839011",
-                  hintStyle: TextStyle(color: Color(0xff808080)),
-                  prefixIcon: Icon(
-                    FluentIcons.call_16_regular,
-                    color: Color(0xff808080),
-                  ),
-                  filled: true, // Set filled to true to enable background color
-                  fillColor: Color(0xffD9D9D9),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xffFF9314),
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Password *',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "Poppins",
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffFF9314), width: 2),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "*********",
+                      hintStyle: TextStyle(color: Color(0xff808080)),
+                      prefixIcon: Icon(
+                        FluentIcons.lock_closed_16_regular,
+                        color: Color(0xff808080),
+                      ),
+                      // filled:
+                      //     true, // Set filled to true to enable background color
+                      fillColor: Color.fromARGB(255, 10, 10, 10),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFFFF9314),
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xffFF9314), width: 2),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.0,
                     ),
                   ),
-                ),
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-            const Gap(20),
-            const Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 15,
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "*********",
-                  hintStyle: TextStyle(color: Color(0xff808080)),
-                  prefixIcon: Icon(
-                    FluentIcons.lock_closed_16_regular,
-                    color: Color(0xff808080),
-                  ),
-                  filled: true, // Set filled to true to enable background color
-                  fillColor: Color(0xffD9D9D9),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xffFF9314),
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffFF9314), width: 2),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                  ),
-                ),
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
+                ],
               ),
             ),
             const Gap(20),
@@ -184,7 +195,7 @@ class RegeisterPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 15),
                 child: const Center(
                   child: Text(
-                    "LOGIN",
+                    "Register",
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 ),

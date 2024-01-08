@@ -2,6 +2,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:horyal_coffee/views/forget.dart';
+import 'package:horyal_coffee/views/home.dart';
 import 'package:horyal_coffee/views/register.dart';
 
 class LoginPage extends StatelessWidget {
@@ -12,6 +13,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
         elevation: 0,
       ),
       body: Center(
@@ -20,6 +22,7 @@ class LoginPage extends StatelessWidget {
           children: [
             const Image(
               image: AssetImage('assets/logo.png'),
+              height: 120,
             ),
             const Gap(5),
             const Text(
@@ -35,34 +38,48 @@ class LoginPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "example@gmail.com",
-                  hintStyle: TextStyle(color: Color(0xff808080)),
-                  prefixIcon: Icon(
-                    FluentIcons.mail_16_regular,
-                    color: Color(0xff808080),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Email *',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "Poppins"),
                   ),
-                  filled: true, // Set filled to true to enable background color
-                  fillColor: Color(0xffD9D9D9),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xffFF9314),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "example@gmail.com",
+                      hintStyle: TextStyle(color: Color(0xff808080)),
+                      prefixIcon: Icon(
+                        FluentIcons.mail_16_regular,
+                        color: Color(0xff808080),
+                      ),
+                      // filled: true, // Set filled to true to enable background color
+                      fillColor: Color.fromARGB(255, 7, 7, 7),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xffFF9314),
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xffFF9314), width: 2),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                     ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.0,
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffFF9314), width: 2),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                  ),
-                ),
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
+                ],
               ),
             ),
             const Gap(15),
@@ -70,34 +87,50 @@ class LoginPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "*********",
-                  hintStyle: TextStyle(color: Color(0xff808080)),
-                  prefixIcon: Icon(
-                    FluentIcons.lock_closed_16_regular,
-                    color: Color(0xff808080),
-                  ),
-                  filled: true, // Set filled to true to enable background color
-                  fillColor: Color(0xffD9D9D9),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFFF9314),
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Password *',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "Poppins",
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xffFF9314), width: 2),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "*********",
+                      hintStyle: TextStyle(color: Color(0xff808080)),
+                      prefixIcon: Icon(
+                        FluentIcons.lock_closed_16_regular,
+                        color: Color(0xff808080),
+                      ),
+                      // filled:
+                      //     true, // Set filled to true to enable background color
+                      fillColor: Color.fromARGB(255, 10, 10, 10),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFFFF9314),
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xffFF9314), width: 2),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.0,
                     ),
                   ),
-                ),
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
+                ],
               ),
             ),
             const Gap(10),
@@ -130,6 +163,8 @@ class LoginPage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 // Add your logic for the "Sign In" action here
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => HomePage()));
               },
               child: Container(
                 width: double.infinity,
@@ -173,7 +208,6 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            const Gap(10),
             const Padding(
               padding: EdgeInsets.only(right: 20),
               child: Row(
@@ -181,9 +215,11 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Image(
                     image: AssetImage('assets/Google.png'),
+                    height: 90,
                   ),
                   Image(
                     image: AssetImage('assets/Facebook.png'),
+                    height: 90,
                   )
                 ],
               ),
