@@ -14,12 +14,12 @@ class SuccessPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: 140,
-              width: 140,
+              height: 180,
+              width: 180,
               decoration: BoxDecoration(
                   // color: kSecondaryColor,
                   image: DecorationImage(
-                image: AssetImage("assets/check-7060.png"),
+                image: AssetImage("assets/Group-6872.png"),
                 fit: BoxFit.cover,
               )),
             ),

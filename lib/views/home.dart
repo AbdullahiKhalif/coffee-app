@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:horyal_coffee/constants.dart';
 import 'package:horyal_coffee/views/productList.dart';
+import 'package:horyal_coffee/views/profille.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   final String descriptionCup1 = "Coffee with suger";
   final double priceCup1 = 10.0;
   final imgCup1 = "assets/cup4.png";
-  final String titleCup2 = "Baydan Cofee";
+  final String titleCup2 = "Caramel Machiato";
   final descriptionCup2 = "Coffee without suger";
   final double priceCup2 = 5.0;
   final String imgCup2 = "assets/cup2.jpg";
@@ -173,22 +174,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              // Gap(10),
-              // Container(
-              //   padding: const EdgeInsets.all(4),
-              //   width: double.infinity,
-              //   height: 300,
-              //   child: ListView.builder(
-              //       padding: const EdgeInsets.all(4),
-              //       itemCount: 2,
-              //       scrollDirection: Axis.horizontal,
-              //       shrinkWrap: true,
-              //       itemBuilder: (context, index) => ProductCard()),
-              // ),
-              // MasonryGridView(
-              //   gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
-              //       crossAxisCount: 2),
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,7 +237,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Container(
                                   padding: EdgeInsets.all(4),
                                   decoration: BoxDecoration(
-                                    color: kSecondaryColor,
+                                    color: kPrimaryColor,
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: Icon(
@@ -329,7 +314,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Container(
                                   padding: EdgeInsets.all(4),
                                   decoration: BoxDecoration(
-                                    color: kSecondaryColor,
+                                    color: kPrimaryColor,
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: Icon(
@@ -356,32 +341,32 @@ class _HomePageState extends State<HomePage> {
             child: Padding(
               padding: const EdgeInsets.only(left: 25),
               child: Container(
-                decoration: BoxDecoration(
-                  color: kSecondaryColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: BottomNavigationBar(
-                  backgroundColor: Colors.transparent,
-                  selectedItemColor: Colors.white,
-                  unselectedItemColor: kThirdColor,
-                  items: [
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.home), label: 'Home'),
-                    BottomNavigationBarItem(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: kSecondaryColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Icons.home,
+                        color: Colors.white,
+                        size: 25,
+                      ),
+                      IconButton(
                         icon: Icon(
-                          Icons.add,
+                          Icons.person_4_rounded,
                           size: 26,
+                          color: Colors.white,
                         ),
-                        label: 'Order'),
-                    BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.person_2_rounded,
-                          size: 26,
-                        ),
-                        label: 'Info'),
-                  ],
-                ),
-              ),
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => ProfilePage()));
+                        },
+                      ),
+                    ],
+                  )),
             ),
           ),
         ],

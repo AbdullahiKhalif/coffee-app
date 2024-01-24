@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1006544768022",
+    "project_id": "coffee-app-bf87e",
+    "storage_bucket": "coffee-app-bf87e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006544768022:android:e6334776e517387abfb937",
+        "android_client_info": {
+          "package_name": "com.example.horyal_coffee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj9MvoO8emtlbaKqpXijlV5vVt7rUqNpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

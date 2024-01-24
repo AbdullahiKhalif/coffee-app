@@ -1,12 +1,32 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:horyal_coffee/constants.dart';
+import 'package:horyal_coffee/controller/auth_controller.dart';
 import 'package:horyal_coffee/views/forget.dart';
-import 'package:horyal_coffee/views/home.dart';
 import 'package:horyal_coffee/views/register.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final AuthController _authController = Get.put(AuthController());
+
+  final TextEditingController _emailController = TextEditingController();
+
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool isHidden = true;
+
+  clearFields() {
+    _emailController.clear();
+    _passwordController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +54,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const Gap(15),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
               ),
@@ -49,8 +69,9 @@ class LoginPage extends StatelessWidget {
                         fontFamily: "Poppins"),
                   ),
                   TextField(
+                    controller: _emailController,
                     decoration: InputDecoration(
-                      hintText: "example@gmail.com",
+                      hintText: "person@gmail.com",
                       hintStyle: TextStyle(color: Color(0xff808080)),
                       prefixIcon: Icon(
                         FluentIcons.mail_16_regular,
@@ -83,7 +104,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const Gap(15),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
               ),
@@ -99,12 +120,25 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextField(
+                    controller: _passwordController,
+                    obscureText: isHidden,
                     decoration: InputDecoration(
                       hintText: "*********",
                       hintStyle: TextStyle(color: Color(0xff808080)),
                       prefixIcon: Icon(
                         FluentIcons.lock_closed_16_regular,
                         color: Color(0xff808080),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isHidden = !isHidden;
+                          });
+                        },
+                        icon: Icon(
+                          isHidden ? Icons.visibility_off : Icons.visibility,
+                          color: kSecondaryColor,
+                        ),
                       ),
                       // filled:
                       //     true, // Set filled to true to enable background color
@@ -136,12 +170,7 @@ class LoginPage extends StatelessWidget {
             const Gap(10),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ForgetPage(),
-                  ),
-                );
+                Get.off(ForgetPage());
               },
               child: const Padding(
                 padding: EdgeInsets.only(right: 20),
@@ -162,9 +191,21 @@ class LoginPage extends StatelessWidget {
             const Gap(10),
             GestureDetector(
               onTap: () {
-                // Add your logic for the "Sign In" action here
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => HomePage()));
+                if (_emailController.text == "" ||
+                    _passwordController.text == "") {
+                  Get.snackbar(
+                    'Required!',
+                    'Email and password are both required',
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.red,
+                    colorText: Colors.white,
+                  );
+                  return;
+                } else {
+                  _authController.signIn(
+                      email: _emailController.text.trim(),
+                      password: _passwordController.text.trim());
+                }
               },
               child: Container(
                 width: double.infinity,
@@ -191,12 +232,7 @@ class LoginPage extends StatelessWidget {
                   const Text("Don't have an account? "),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RegeisterPage(),
-                        ),
-                      );
+                      Get.off(RegeisterPage());
                     },
                     child: const Text(
                       "Register now!",

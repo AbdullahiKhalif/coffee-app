@@ -3,10 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 // import 'package:horyal_coffee/widgets/customeLv.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'package:get/get.dart';
+import 'package:horyal_coffee/controller/auth_controller.dart';
 import 'package:horyal_coffee/widgets/customeLv.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({Key? key}) : super(key: key);
+  final AuthController _authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +29,11 @@ class ProfilePage extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           radius: 60,
-                          backgroundImage: AssetImage('assets/aderow.jpeg'),
+                          backgroundImage: AssetImage('assets/logo.png'),
                         ),
                         Gap(5),
                         Text(
-                          'Abdullahi Khalifa',
+                          'Horyaan Coffee',
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black,
@@ -81,18 +84,23 @@ class ProfilePage extends StatelessWidget {
                 TfluentIcon: FluentIcons.chevron_right_24_regular,
               ),
               Gap(10),
-              Container(
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Color(0xff321D0B),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                child: const Center(
-                  child: Text(
-                    "LOGIN",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+              GestureDetector(
+                onTap: () {
+                  _authController.signOut();
+                },
+                child: Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: Color(0xff321D0B),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  child: const Center(
+                    child: Text(
+                      "Logout",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                   ),
                 ),
               ),
@@ -103,74 +111,3 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-// Padding(
-//         padding: EdgeInsets.only(top: 50),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.start,
-//           children: [
-//             Center(
-//               child: CircleAvatar(
-//                 radius: 60,
-//                 backgroundColor: Color(0xffFFCE95),
-//                 backgroundImage: AssetImage('assets/aderow.jpeg'),
-//               ),
-//             ),
-//             Gap(5),
-//             Text(
-//               'Abdullahi Khalifa',
-//               style: TextStyle(
-//                 fontSize: 16,
-//                 color: Colors.black,
-//                 fontWeight: FontWeight.bold,
-//               ),
-//             ),
-//             Gap(10),
-
-//             ///listile design
-//           ],
-//         ),
-//       ),
-
-// CustomeListview(
-//   title: 'Edit Account info',
-//   leading: FluentIcons.edit_16_regular,
-//   trailing: FluentIcons.chevron_right_24_regular,
-// ),
-// CustomeListview(
-//   title: 'Address Info',
-//   leading: FluentIcons.location_24_regular,
-//   trailing: FluentIcons.chevron_right_24_regular,
-// ),
-// CustomeListview(
-//   title: 'Payment Method',
-//   leading: FluentIcons.payment_24_regular,
-//   trailing: FluentIcons.chevron_right_24_regular,
-// ),
-// CustomeListview(
-//   title: 'Rewards or Coupon',
-//   leading: FluentIcons.ticket_diagonal_24_regular,
-//   trailing: FluentIcons.chevron_right_24_regular,
-// ),
-// CustomeListview(
-//   title: 'Settings',
-//   leading: FluentIcons.settings_24_regular,
-//   trailing: FluentIcons.chevron_right_24_regular,
-// ),
-// CustomeListview(
-//   title: 'About Coffee Now',
-//   leading: FluentIcons.drink_coffee_24_regular,
-//   trailing: FluentIcons.chevron_right_24_regular,
-// ),
-// CustomeListview(
-//   title: 'Privacy Policy',
-//   leading: Icon,
-//   trailing: FluentIcons.chevron_right_24_regular,
-// ),

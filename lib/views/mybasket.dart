@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:horyal_coffee/constants.dart';
 import 'package:horyal_coffee/views/checkout.dart';
-import 'package:horyal_coffee/views/profille.dart';
 
 class MyBasketPage extends StatelessWidget {
   const MyBasketPage(
